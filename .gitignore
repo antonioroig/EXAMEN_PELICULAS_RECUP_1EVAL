@@ -1,0 +1,17 @@
+.DS_Store
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+.env
+.env.local
+.cache/
+.vscode/
+.idea/
+cypress/screenshots/
+cypress/videos/
+dist/
+coverage/
+/.history/
+Thumbs.db

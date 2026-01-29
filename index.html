@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Examen Películas - Recuperación 1ª Evaluación</title>
+</head>
+<body>
+  <h1>Catálogo de Películas</h1>
+
+  <div id="botones-generos"></div>
+
+  <section id="lista-peliculas"></section>
+
+  <h2>Favoritos</h2>
+  <div id="lista-favoritos"></div>
+
+  <template id="template-pelicula">
+    <article class="pelicula">
+      <h3 class="titulo"></h3>
+      <p class="genero"></p>
+      <p class="anio"></p>
+      <p class="duracion"></p>
+      <p class="puntuacion"></p>
+      <button class="btn-favorito">Añadir a favoritos</button>
+      <button class="btn-detalles">Detalles</button>
+    </article>
+  </template>
+
+  <template id="template-favorito">
+    <li>
+      <span class="fav-titulo"></span> - <span class="fav-genero"></span>
+      <button class="btn-eliminar">Eliminar</button>
+    </li>
+  </template>
+
+  <script src="main.js"></script>
+</body>
+</html>

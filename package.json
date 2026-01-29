@@ -1,0 +1,17 @@
+{
+  "name": "examen-peliculas-recup-1eval",
+  "version": "1.0.0",
+  "description": "Plantilla examen DWEC - Catálogo de Películas (recuperación)",
+  "scripts": {
+    "test": "cypress open",
+    "test:run": "cypress run",
+    "test:headless": "cypress run --headless",
+    "serve": "npx http-server -p 3000"
+  },
+  "keywords": ["cypress", "examen", "dwec"],
+  "author": "Antonio Roig",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.0.0"
+  }
+}
