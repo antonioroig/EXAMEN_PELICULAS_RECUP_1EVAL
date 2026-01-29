@@ -1,39 +1,67 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Examen Películas - Recuperación 1ª Evaluación</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de Películas</title>
+  <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-  <h1>Catálogo de Películas</h1>
+  <div class="container">
+    <header>
+      <h1>🎬 Catálogo de Películas</h1>
+      <p>Añade tus películas favoritas</p>
+    </header>
 
-  <div id="botones-generos"></div>
+    <main>
+      <!-- SECCIÓN DE FILTROS Y BÚSQUEDA -->
+      <section class="filtros">
+        <h2>Filtrar por género</h2>
+        <div id="botones-generos" class="botones-filtro">
+          <!-- Los botones se generarán dinámicamente -->
+        </div>
+      </section>
 
-  <section id="lista-peliculas"></section>
+      <!-- SECCIÓN DE CATÁLOGO -->
+      <section class="catalogo">
+        <h2>Películas disponibles</h2>
+        <div id="lista-peliculas" class="lista-peliculas">
+          <!-- Las películas se cargarán aquí -->
+        </div>
+      </section>
 
-  <h2>Favoritos</h2>
-  <div id="lista-favoritos"></div>
+      <!-- SECCIÓN DE FAVORITOS -->
+      <section class="favoritos">
+        <h2>Mis favoritos ⭐</h2>
+        <div id="lista-favoritos" class="lista-favoritos">
+          <!-- Los favoritos se mostrarán aquí -->
+        </div>
+      </section>
+    </main>
+  </div>
 
+  <!-- TEMPLATE PARA PELÍCULAS -->
   <template id="template-pelicula">
-    <article class="pelicula">
+    <article class="pelicula-card">
       <h3 class="titulo"></h3>
       <p class="genero"></p>
       <p class="anio"></p>
       <p class="duracion"></p>
       <p class="puntuacion"></p>
       <button class="btn-favorito">Añadir a favoritos</button>
-      <button class="btn-detalles">Detalles</button>
+      <button class="btn-detalles">Ver detalles</button>
     </article>
   </template>
 
+  <!-- TEMPLATE PARA FAVORITOS -->
   <template id="template-favorito">
-    <li>
-      <span class="fav-titulo"></span> - <span class="fav-genero"></span>
-      <button class="btn-eliminar">Eliminar</button>
+    <li class="item-favorito">
+      <span class="fav-titulo"></span>
+      <span class="fav-genero"></span>
+      <button class="btn-eliminar">✕</button>
     </li>
   </template>
 
-  <script src="main.js"></script>
+  <script type="module" src="main.js"></script>
 </body>
 </html>

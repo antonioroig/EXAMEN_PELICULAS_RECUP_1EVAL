@@ -12,48 +12,44 @@ index.html - HTML con templates
 estilos.css - Estilos (sin cambios respecto al enunciado)
 main.js - Solución con todas las funciones implementadas
 
-## Funciones implementadas
-
-### cargarPeliculas()
-Itera sobre el array peliculas, clona el template y configura cada campo de texto con los valores de la película.
-
-### crearBotonesFiltro()
-Itera sobre el array generos, crea botones dinámicamente y asigna listeners que llaman a filtrarPorGenero().
-
-### inicializarBotonesFavoritos()
-Selecciona todos los botones .btn-favorito, añade listeners que:
-- Obtienen título, género y duración del card padre
-- Buscan el id en el array peliculas
-- Validan que no exista duplicado
-- Añaden a favoritos
-- Actualizan la vista
-
-### inicializarBotonesDetalles()
-Selecciona todos los botones .btn-detalles, añade listeners que muestran un alert con el título.
-
-### ManejadorEliminar(pelicula) de favoritos
-Función constructora que almacena la película en this.pelicula.
-
-Método .handle():
-- Busca el favorito por id en el array
-- Lo eliminas
-- Actualizas la vista
-- Muestra alert de confirmación
-
-### filtrarPorGenero(genero)
-Obtener películas del género elegido.
-Limpia el contenedor y repinta con el template.
-Reinicializa los listeners de botones.
-
-### mostrarFavoritos()
-Limpia el contenedor de favoritos.
-Si no hay: muestra mensaje "Sin favoritos aún".
-Si hay: crea una lista, clona el template, configura datos y asigna objeto manejador a cada botón eliminar.
 
 
-### init()
-Llamadas ordenadas a todas las funciones de inicialización.
+## Puntuación
 
+Los tests están organizados por función y asignan puntos:
+
+## Funciones a implementar
+
+- **cargarPeliculas()**: 1.5 puntos
+  - Verifica que se cargan 8 películas
+  - Comprueba que títulos, géneros, años y duraciones son correctos
+
+- **crearBotonesFiltro()**: 1.5 puntos
+  - Verifica creación de 3 botones (uno por género)
+  - Comprueba la clase 'activo' al filtrar
+  - Verifica que al reclickear se muestran todas las películas
+
+- **inicializarBotonesFavoritos()**: 1.5 puntos
+  - Verifica que los botones añaden películas a favoritos
+  - Valida que no permite duplicados
+  - Comprueba que actualiza la vista de favoritos
+
+- **inicializarBotonesDetalles()**: 1 punto
+  - Verifica que muestra alerts con información de películas
+
+- **ManejadorEliminar()**: 1.5 puntos
+  - Comprueba que elimina correctamente de favoritos
+  - Verifica que el array se actualiza correctamente
+
+- **filtrarPorGenero()**: 1.5 puntos
+  - Valida filtrado por cada género
+  - Comprueba que funciona correctamente después de filtrar
+
+- **mostrarFavoritos()**: 1.5 puntos
+  - Verifica mensaje "Sin favoritos aún" cuando está vacío
+  - Comprueba creación de lista cuando hay favoritos
+
+**Total: 10 puntos**
 ## Test
 
 ## Ejecución de Tests
