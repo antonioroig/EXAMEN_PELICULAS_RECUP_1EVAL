@@ -14,15 +14,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Usamos la acción oficial de Cypress: instala, arranca servidor y ejecuta
+      # Usamos la acción oficial de Cypress
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          # Si necesitas arrancar tu app antes de testear, descomenta la siguiente línea:
-          # start: npm start 
-          # wait-on: 'http://localhost:3000'
+          # Si NO tienes package-lock.json, forzamos la instalación simple
+          install-command: npm install
           browser: chrome
-          headless: true # Fuerza el modo sin cabezal
+          # Eliminamos 'headless: true' ya que la acción NO lo usa como input
 
       - name: Upload screenshots on failure
         if: failure()
@@ -30,6 +29,7 @@ jobs:
         with:
           name: cypress-screenshots
           path: cypress/screenshots
+          if-no-files-found: ignore # Evita el error si no hay capturas
 
       - name: Upload test videos
         if: always()
@@ -37,4 +37,5 @@ jobs:
         with:
           name: cypress-videos
           path: cypress/videos
+          if-no-files-found: ignore # Evita el error si no hay videos
           retention-days: 5
