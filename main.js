@@ -48,9 +48,6 @@ function inicializarBotonesDetalles() {
 
 function ManejadorEliminar() {
   // TODO: Implementar: objeto manejador para eliminar favoritos
-  this.handleEvent = function(event) {
-    // implementar eliminación
-  }
 }
 
 function filtrarPorGenero(genero) {
