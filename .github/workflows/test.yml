@@ -37,7 +37,7 @@ jobs:
     # Subir screenshots si hay fallos (opcional)
     - name: Upload screenshots on failure
       if: failure()
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: cypress-screenshots
         path: cypress/screenshots
@@ -45,7 +45,7 @@ jobs:
     # Subir videos de ejecución (opcional)
     - name: Upload test videos
       if: always()
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: cypress-videos
         path: cypress/videos
