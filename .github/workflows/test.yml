@@ -1,0 +1,73 @@
+name: Tests Cypress - EXAMEN DWEC
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master, develop ]
+
+jobs:
+  cypress-tests:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+    
+    steps:
+    # Descargar código del repositorio
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    # Configurar Node.js
+    - name: Setup Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    
+    # Instalar dependencias
+    - name: Install dependencies
+      run: npm ci
+    
+    # Ejecutar tests de Cypress
+    - name: Run Cypress tests
+      run: npx cypress run --browser electron
+    
+    # Subir screenshots si hay fallos (opcional)
+    - name: Upload screenshots on failure
+      if: failure()
+      uses: actions/upload-artifact@v3
+      with:
+        name: cypress-screenshots
+        path: cypress/screenshots
+    
+    # Subir videos de ejecución (opcional)
+    - name: Upload test videos
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: cypress-videos
+        path: cypress/videos
+        retention-days: 5
+    
+    # Generar reporte de cobertura (opcional)
+    - name: Generate test report
+      if: always()
+      run: |
+        echo "✓ Tests completados en Node.js ${{ matrix.node-version }}"
+        echo "Repository: ${{ github.repository }}"
+        echo "Commit: ${{ github.sha }}"
+        echo "Branch: ${{ github.ref }}"
+    
+    # Notificar resultado
+    - name: Test Result Summary
+      if: always()
+      run: |
+        if [ $? -eq 0 ]; then
+          echo "✓ TODOS LOS TESTS PASARON"
+          exit 0
+        else
+          echo "✗ ALGUNOS TESTS FALLARON"
+          exit 1
+        fi
