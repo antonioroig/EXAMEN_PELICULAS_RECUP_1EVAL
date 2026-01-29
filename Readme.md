@@ -31,7 +31,7 @@ Selecciona todos los botones .btn-favorito, añade listeners que:
 ### inicializarBotonesDetalles()
 Selecciona todos los botones .btn-detalles, añade listeners que muestran un alert con el título.
 
-### ManejadorEliminar(pelicula)
+### ManejadorEliminar(pelicula) de favoritos
 Función constructora que almacena la película en this.pelicula.
 
 Método .handle():
@@ -49,6 +49,7 @@ Reinicializa los listeners de botones.
 Limpia el contenedor de favoritos.
 Si no hay: muestra mensaje "Sin favoritos aún".
 Si hay: crea una lista, clona el template, configura datos y asigna objeto manejador a cada botón eliminar.
+
 
 ### init()
 Llamadas ordenadas a todas las funciones de inicialización.
