@@ -6,28 +6,6 @@
 npm install
 ```
 
-## Ejecución de Tests
-
-### Abrir Cypress (modo interactivo)
-```bash
-npm test
-```
-o bien
-
-```bash
-npx cypress open
-```
-
-### Ejecutar tests en headless
-```bash
-npm run test:headless
-```
-
-### Levantar servidor local
-```bash
-npm run serve
-```
-
 ## Estructura
 
 index.html - HTML con templates
@@ -75,21 +53,29 @@ Si hay: crea una lista, clona el template, configura datos y asigna objeto manej
 ### init()
 Llamadas ordenadas a todas las funciones de inicialización.
 
-## Notas de implementación
-
-- Se usa parentElement para acceder al card padre (no closest())
-- Se usa querySelector() para localizar elementos dentro de clones
-- Se usa textContent en lugar de innerHTML
-- Se usa filter() para filtrar películas
-- Se usa findIndex() para encontrar favoritos a eliminar
-- Se usa bind() para mantener el contexto de this en el objeto manejador
-- No se usan dataset en ninguna función
-- Los botones de filtro se crean dinámicamente
-
 ## Test
 
-npx cypress open
+## Ejecución de Tests
+
+### Abrir Cypress (modo interactivo)
+```bash
 npm test
+```
+o bien
+
+```bash
+npx cypress open
+```
+
+### Ejecutar tests en headless
+```bash
+npm run test:headless
+```
+
+### Levantar servidor local
+```bash
+npm run serve
+```
 
 
 ## Para probar
